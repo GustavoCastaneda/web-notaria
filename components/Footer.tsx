@@ -23,15 +23,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm text-stone-400 font-light">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent mt-1" />
-                <span>Av. Reforma 222, Piso 40<br/>Toluca, Edo. Méx</span>
+                <span>Av. Reforma 222, Piso 40<br />Toluca, Edo. Méx</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent" />
-                <span>+52 (722) 1234 5678</span>
+                <span>(722) 217-6329</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent" />
-                <span>contacto@notaria103.com</span>
+                <span>contacto@not103.com.mx</span>
               </li>
             </ul>
           </div>
