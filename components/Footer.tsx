@@ -1,65 +1,66 @@
 import React from 'react';
 import { APP_NAME } from '../constants';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#1c1917] text-stone-200 border-t border-border pt-20 pb-10">
+    <footer className="bg-surface text-white pt-24 pb-12 rounded-t-[3rem] mt-12 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="font-serif text-2xl tracking-widest text-white font-semibold mb-6 flex items-center gap-2">
-              <div className="w-3 h-3 bg-accent rotate-45"></div>
-              {APP_NAME}
-            </h3>
-            <p className="text-accent text-xs uppercase tracking-widest mb-4">Lic. Víctor Alfonso Varela Velasco</p>
-            <p className="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
-              Elevando el estándar de los servicios notariales en Toluca. Combinamos experiencia legal con tecnología de punta para ofrecer seguridad jurídica sin complicaciones.
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-2 mb-8">
+              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                <span className="text-background font-bold text-lg">N</span>
+              </div>
+              <span className="text-2xl font-bold tracking-tight">{APP_NAME}</span>
+            </div>
+            <p className="text-secondary text-lg leading-relaxed max-w-sm mb-8">
+              Elevando el estándar notarial con tecnología y experiencia. Su socio estratégico en Toluca.
             </p>
+            <div className="flex gap-4">
+              {[Instagram, Facebook, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-background transition-all">
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-serif mb-6">Contacto</h4>
-            <ul className="space-y-4 text-sm text-stone-400 font-light">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-accent mt-1" />
-                <span>Av. Reforma 222, Piso 40<br />Toluca, Edo. Méx</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-accent" />
-                <span>(722) 217-6329</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-accent" />
-                <span>contacto@not103.com.mx</span>
-              </li>
+          <div className="md:col-span-3">
+            <h4 className="text-lg font-bold mb-6 text-white">Enlaces</h4>
+            <ul className="space-y-4 text-secondary">
+              <li><a href="#" className="hover:text-accent transition-colors">Inicio</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Servicios</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Nosotros</a></li>
+              <li><a href="#" className="hover:text-accent transition-colors">Agendar Cita</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-serif mb-6">Horario</h4>
-            <ul className="space-y-2 text-sm text-stone-400 font-light">
-              <li className="flex justify-between">
-                <span>Lunes - Viernes</span>
-                <span className="text-white">9:00 - 18:00</span>
+          <div className="md:col-span-4">
+            <h4 className="text-lg font-bold mb-6 text-white">Contacto</h4>
+            <ul className="space-y-6 text-secondary">
+              <li className="flex items-start gap-4">
+                <MapPin className="w-6 h-6 text-accent shrink-0" />
+                <span>C.I. M. Altamirano 1000, Universidad,<br />50130 Toluca de Lerdo, Méx.</span>
               </li>
-              <li className="flex justify-between">
-                <span>Sábado</span>
-                <span className="text-white">10:00 - 14:00</span>
+              <li className="flex items-center gap-4">
+                <Phone className="w-6 h-6 text-accent shrink-0" />
+                <span>(722) 217-6329</span>
               </li>
-              <li className="flex justify-between">
-                <span>Domingo</span>
-                <span className="text-stone-600">Cerrado</span>
+              <li className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-accent shrink-0" />
+                <span>contacto@not103.com.mx</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-stone-500 gap-4">
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-secondary gap-4">
           <p>© {new Date().getFullYear()} Notaría 103. Todos los derechos reservados.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-stone-300 transition-colors">Aviso de Privacidad</a>
-            <a href="#" className="hover:text-stone-300 transition-colors">Términos y Condiciones</a>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
+            <a href="#" className="hover:text-white transition-colors">Términos</a>
           </div>
         </div>
       </div>

@@ -1,55 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SERVICES } from '../constants';
 import { SectionId } from '../types';
-import { ArrowUpRight } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+const SERVICE_IMAGES: Record<string, string> = {
+  'bienes-inmuebles': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80', // Modern Building
+  'testamentos': 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80', // Signing document
+  'contratos': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', // Business meeting
+  'poderes': 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', // Handshake/Agreement
+  'corporativo': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', // Corporate office
+  'divorcios': 'https://images.unsplash.com/photo-1633613286991-611fe299c4be?auto=format&fit=crop&w=800&q=80', // Legal abstract
+  'actas': 'https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=800&q=80', // Documents
+  'cancelaciones': 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=800&q=80', // Real estate keys
+  'herederos': 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80', // Family/People
+  'fe-publica': 'https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=800&q=80', // Eye/Lens or Abstract
+  'apostilla': 'https://images.unsplash.com/photo-1569974498991-d3c12a504f95?auto=format&fit=crop&w=800&q=80', // Passport/Stamp
+  'protocolizacion': 'https://images.unsplash.com/photo-1618044733300-9472054094ee?auto=format&fit=crop&w=800&q=80', // Books/Library
+  'subastas': 'https://images.unsplash.com/photo-1551135049-8a33b5883817?auto=format&fit=crop&w=800&q=80', // Gavel auction
+};
 
 const Services: React.FC = () => {
-  return (
-    <section id={SectionId.SERVICES} className="py-24 bg-surface border-b border-border">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div>
-            <span className="text-accent uppercase tracking-[0.2em] text-xs font-semibold block mb-4">Áreas de Práctica</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-primary">Soluciones Integrales</h2>
-          </div>
-          <p className="text-secondary max-w-md text-sm leading-relaxed text-right md:text-left">
-            Cubrimos todas las necesidades notariales con un equipo especializado en cada rama del derecho, garantizando precisión y rapidez.
-          </p>
-        </div>
+  const [showAll, setShowAll] = useState(false);
+  const displayedServices = showAll ? SERVICES : SERVICES.slice(0, 3);
 
-        {/* Grid Layout designed to look like a Bento box */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service, index) => (
-            <div 
-              key={service.id} 
-              className={`
-                group relative p-8 border-border hover:bg-[#f5f5f4] transition-colors duration-500
-                border-b
-                ${index % 3 !== 2 ? 'lg:border-r' : ''} /* Right border for 1st and 2nd cols on lg */
-                ${index % 2 !== 1 ? 'md:border-r lg:border-r-0' : ''} /* MD logic adjustment */
-                flex flex-col justify-between h-[320px] bg-white
-              `}
-            >
-              <div className="flex justify-between items-start">
-                 <div className="p-3 bg-stone-50 border border-stone-100 rounded-sm text-accent group-hover:text-primary transition-colors">
-                   {service.icon}
-                 </div>
-                 <span className="text-stone-200 font-serif text-4xl group-hover:text-stone-300 transition-colors">0{index + 1}</span>
+  return (
+    <section id={SectionId.SERVICES} className="bg-[#022c22]">
+
+      <div className="py-20 text-center">
+        <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Lo que ofrecemos</h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto px-6">
+          Soluciones integrales para el éxito de su patrimonio y empresa.
+        </p>
+      </div>
+
+      {/* Full Width Image Card Grid */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-3">
+        {displayedServices.map((service, index) => (
+          <div
+            key={service.id}
+            className="group relative h-[80vh] min-h-[600px] overflow-hidden bg-accent border-r border-white/10 last:border-r-0"
+          >
+            {/* Background Image Layer (Fades out on hover) */}
+            <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0 z-10">
+              <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Dark Overlay */}
+              <img
+                src={SERVICE_IMAGES[service.id] || 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80'}
+                alt={service.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Content Layer */}
+            <div className="absolute inset-0 z-20 p-12 flex flex-col justify-between h-full">
+
+              {/* Top: Number */}
+              <div className="text-white/80 font-mono text-sm group-hover:text-[#022c22] transition-colors duration-300 border-b border-white/20 pb-4 group-hover:border-[#022c22]/20 w-fit">
+                {String(index + 1).padStart(2, '0')}
               </div>
 
-              <div>
-                <h3 className="text-xl font-serif text-primary mb-3 group-hover:translate-x-2 transition-transform duration-300 flex items-center gap-2">
+              {/* Bottom: Content */}
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="text-4xl font-bold text-white mb-6 group-hover:text-[#022c22] transition-colors duration-300 leading-tight">
                   {service.title}
-                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent" />
                 </h3>
-                <p className="text-secondary text-sm font-light leading-relaxed group-hover:text-primary transition-colors">
+
+                <p className="text-white/80 text-lg leading-relaxed mb-8 line-clamp-3 group-hover:text-[#022c22]/80 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 duration-500 delay-100">
                   {service.description}
                 </p>
+
+                <button className="bg-white text-[#022c22] px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-[#022c22] hover:text-white transition-all duration-300">
+                  Ver Detalles
+                </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="py-12 flex justify-center bg-[#022c22]">
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="flex items-center gap-2 px-8 py-4 bg-white text-[#022c22] rounded-full font-bold hover:bg-gray-200 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+        >
+          {showAll ? 'Ver menos servicios' : 'Ver más servicios'}
+          {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        </button>
       </div>
     </section>
   );
