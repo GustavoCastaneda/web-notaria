@@ -33,12 +33,12 @@ const Values: React.FC = () => {
     const [activeValue, setActiveValue] = useState(VALUES[2]); // Default to Collaboration as in image
 
     return (
-        <section className="bg-[#022c22] text-white py-24 border-t border-white/10 overflow-hidden">
+        <section className="bg-black text-white py-24 border-t border-white/10 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header Label */}
                 <div className="flex items-center gap-2 mb-20 text-white/60 uppercase tracking-widest text-xs font-bold">
-                    <Plus className="w-4 h-4 text-accent" />
+                    <Plus className="w-4 h-4 text-white" />
                     Nuestros Valores
                 </div>
 
@@ -56,8 +56,8 @@ const Values: React.FC = () => {
                                     key={val.id}
                                     onClick={() => setActiveValue(val)}
                                     className={`text-5xl md:text-7xl font-bold text-left transition-all duration-300 ${activeValue.id === val.id
-                                            ? 'text-white translate-x-4'
-                                            : 'text-white/20 hover:text-white/40'
+                                        ? 'text-white translate-x-4'
+                                        : 'text-white/20 hover:text-white/40'
                                         }`}
                                 >
                                     {val.title}
@@ -80,7 +80,7 @@ const Values: React.FC = () => {
                             <div className="absolute bottom-8 left-8 right-8 bg-[#f3f4f6] text-[#1a1a1a] p-8 rounded-2xl shadow-lg max-w-md">
                                 <div className="flex justify-between items-start mb-4">
                                     <h3 className="font-bold text-lg">{activeValue.title}</h3>
-                                    <Plus className="w-6 h-6 text-[#022c22]" />
+                                    <Plus className="w-6 h-6 text-black" />
                                 </div>
                                 <p className="text-gray-600 leading-relaxed text-sm">
                                     {activeValue.description}

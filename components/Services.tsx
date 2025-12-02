@@ -24,7 +24,7 @@ const Services: React.FC = () => {
   const displayedServices = showAll ? SERVICES : SERVICES.slice(0, 3);
 
   return (
-    <section id={SectionId.SERVICES} className="bg-[#022c22]">
+    <section id={SectionId.SERVICES} className="bg-black">
 
       <div className="py-20 text-center">
         <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Lo que ofrecemos</h2>
@@ -54,21 +54,21 @@ const Services: React.FC = () => {
             <div className="absolute inset-0 z-20 p-12 flex flex-col justify-between h-full">
 
               {/* Top: Number */}
-              <div className="text-white/80 font-mono text-sm group-hover:text-[#022c22] transition-colors duration-300 border-b border-white/20 pb-4 group-hover:border-[#022c22]/20 w-fit">
+              <div className="text-white/80 font-mono text-sm group-hover:text-black transition-colors duration-300 border-b border-white/20 pb-4 group-hover:border-black/20 w-fit">
                 {String(index + 1).padStart(2, '0')}
               </div>
 
               {/* Bottom: Content */}
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-4xl font-bold text-white mb-6 group-hover:text-[#022c22] transition-colors duration-300 leading-tight">
+                <h3 className="text-4xl font-bold text-white mb-6 group-hover:text-black transition-colors duration-300 leading-tight">
                   {service.title}
                 </h3>
 
-                <p className="text-white/80 text-lg leading-relaxed mb-8 line-clamp-3 group-hover:text-[#022c22]/80 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 duration-500 delay-100">
+                <p className="text-white/80 text-lg leading-relaxed mb-8 line-clamp-3 group-hover:text-black/80 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 duration-500 delay-100">
                   {service.description}
                 </p>
 
-                <button className="bg-white text-[#022c22] px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-[#022c22] hover:text-white transition-all duration-300">
+                <button className="bg-white text-black px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-300 border border-transparent hover:border-white">
                   Ver Detalles
                 </button>
               </div>
@@ -77,10 +77,10 @@ const Services: React.FC = () => {
         ))}
       </div>
 
-      <div className="py-12 flex justify-center bg-[#022c22]">
+      <div className="py-12 flex justify-center bg-black">
         <button
           onClick={() => setShowAll(!showAll)}
-          className="flex items-center gap-2 px-8 py-4 bg-white text-[#022c22] rounded-full font-bold hover:bg-gray-200 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+          className="flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
         >
           {showAll ? 'Ver menos servicios' : 'Ver más servicios'}
           {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
