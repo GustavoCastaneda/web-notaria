@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section id={SectionId.HOME} className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-background">
+    <section id={SectionId.HOME} className="relative min-h-screen flex flex-col justify-center pt-32 md:pt-24 lg:pt-20 overflow-hidden bg-background">
 
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.15] pointer-events-none"></div>
