@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <section id={SectionId.HOME} className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-background">
 
       {/* Grid Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.15] pointer-events-none"></div>
 
       {/* Gradient Glows */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>

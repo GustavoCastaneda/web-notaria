@@ -1,6 +1,7 @@
 import React from 'react';
 import { APP_NAME } from '../constants';
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
+import logoImage from '../assets/logo.jpeg';
 
 const Footer: React.FC = () => {
   return (
@@ -9,10 +10,12 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
 
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-8">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-lg">N</span>
-              </div>
+            <div className="flex items-center gap-3 mb-8">
+              <img
+                src={logoImage}
+                alt={`${APP_NAME} logo`}
+                className="w-10 h-10 rounded-lg object-cover bg-white"
+              />
               <span className="text-2xl font-bold tracking-tight">{APP_NAME}</span>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-sm mb-8">
